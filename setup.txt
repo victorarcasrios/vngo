@@ -1,4 +1,0 @@
-python manage.py migrate
-python manage.py runserver
-sudo apt-get install python-mysqldb
-sudo pip mysql-python
