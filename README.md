@@ -28,6 +28,7 @@ You are free to download, use and do your own version of this project <u>as long
 You should only change user and password param values to the ones of your server.
 The param names are meaningful</li>
 <li>Create an empty database named <b>vngo</b>. You can change the aimed database in <i>settings.py</i> if you want to give it another name</li>
+<li>Prepare migrations to do in next step with <code>python manage.py makemigrations</code></li>
 <li>Apply migrations before run the application (it create all the needed tables in the database)
 <code>python manage.py migrate</code></li>
 <li>Run the server and finally see vngo running
