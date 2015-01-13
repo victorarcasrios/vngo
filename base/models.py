@@ -5,6 +5,11 @@ from django.core.validators import validate_email, MinLengthValidator, MinValueV
 from django.core.exceptions import ValidationError
 from django.conf import settings
 
+## TODO
+# Donations can be given by entities (through donors?, many-to-many?)
+# Beneficiaries can ask for products
+# Job bag
+
 class Person(models.Model):
 
 	name = models.CharField(max_length = 30)
@@ -93,3 +98,13 @@ class Coin(models.Model):
 
 	def __unicode__(self):
 		return unicode(self.symbol) if (self.symbol != '') else unicode(self.acronym)
+
+class Expense(models.Model):
+
+	date = models.DateTimeField(auto_now_add = True)
+	money = models.DecimalField(max_digits = 11, decimal_places = 11)
+	coin = models.ForeignKey('Coin')
+	subject = models.CharField(max_length = 300)
+
+	def __unicode__(self):
+		return u"[{0}] {1}{2}".format(self.date, self.money, self.coin)
